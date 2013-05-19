@@ -1,6 +1,6 @@
 {
   "name": "polymer-bootstrap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A bootstrap app for Polymer",
   "main": "index.js",
   "dependencies": {
