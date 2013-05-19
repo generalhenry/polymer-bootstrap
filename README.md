@@ -12,12 +12,23 @@ Requirements
 Getting started
 ===============
 
-All you need to do is
+Clone this repository
+---------------------
 
 ```sh
-  $ npm install polymer-bootstrap
-  $ npm start polymer-bootstrap
+$ git clone git://github.com/shinuza/polymer-bootstrap.git
 ```
+
+Install the dependencies
+------------------------
+
+```sh
+$ npm install
+$ npm start
+```
+
+Enjoy
+-----
 
 Open your favorite browser (compatible with Polymer) and navigate to [http://localhost:5000](http://localhost:5000)
 
