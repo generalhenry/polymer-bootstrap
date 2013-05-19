@@ -8,7 +8,7 @@
   },
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
-    "start": "node index.js"
+    "start": "node -e \"require('./index.js').listen(5000);\""
   },
   "repository": {
     "type": "git",
