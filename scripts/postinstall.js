@@ -1,21 +1,38 @@
-var path = require('path');
-var spawn = require('child_process').spawn;
+var fs = require('fs')
+  , path = require('path')
+  , spawn = require('child_process').spawn
+  , exists = exports.exists = (fs.existsSync) ? fs.existsSync : path.existsSync;
 
-const OPTIONS = { stdio: 'inherit', cwd: path.resolve(__dirname, '..', 'public') };
-const POLYMER_URL = 'git://github.com/Polymer/polymer.git';
-const TOOLKIT_URL = 'git://github.com/Polymer/toolkit-ui.git';
+const WD = path.resolve(__dirname, '..', 'public');
+const OPTIONS = { stdio: 'inherit', cwd: WD };
+const POLYMER_URL = 'git://github.com/Polymer/';
 
 function cyan(str) {
   return '\x1b[36m' + str + '\x1b[0m';
 }
 
-function clone(name, url, cb) {
-  console.log(cyan('Cloning %s...'), name);
-  var child = spawn('git', ['clone', url, '--recursive'], OPTIONS);
+function red(str) {
+  return '\x1b[31m' + str + '\x1b[0m';
+}
 
+function clone(name, cb) {
+  var child
+    , url = POLYMER_URL + name + '.git';
+
+  if(exists(path.resolve(WD, name))) {
+    return cb && cb();
+  }
+
+  console.log();
+  console.log(cyan('Cloning %s...'), name);
+  console.log();
+
+  child = spawn('git', ['clone', url, '--recursive'], OPTIONS);
   child.on('close', function(code) {
     if (code !== 0) {
-      console.log('Cloning %s failed with code', url, code);
+      console.log();
+      console.log(red('Cloning %s failed with code %d'), url, code);
+      console.log();
       process.exit(1);
     } else {
       if(cb) {
@@ -25,7 +42,7 @@ function clone(name, url, cb) {
   });
 }
 
-var toolkit = clone.bind(null, 'toolkit', TOOLKIT_URL);
-var polymer = clone.bind(null, 'polymer', POLYMER_URL);
+var toolkit = clone.bind(null, 'toolkit-ui');
+var polymer = clone.bind(null, 'polymer');
 
 polymer(toolkit);
