@@ -1,0 +1,35 @@
+{
+  "name": "polymer-bootstrap",
+  "version": "0.0.1",
+  "description": "A bootstrap app for Polymer",
+  "main": "index.js",
+  "dependencies": {
+    "express": "*"
+  },
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shinuza/polymer-bootstrap"
+  },
+  "keywords": [
+    "polymer",
+    "bootstrap"
+  ],
+  "author": {
+    "name": "Samori Gorse",
+    "email": "samorigorse+node@gmail.com"
+  },
+  "bugs": "https://github.com/shinuza/polymer-bootstrap/issues",
+  "engines": {
+    "node": ">=0.6 <0.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT +no-false-attribs",
+      "url": "https://github.com/shinuza/captain-admin/raw/master/LICENSE"
+    }
+  ]
+}
