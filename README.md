@@ -16,7 +16,7 @@ All you need to do is
 
 ```sh
   $ npm install polymer-bootstrap
-  $ npm start
+  $ npm start polymer-bootstrap
 ```
 
 Open your favorite browser (compatible with Polymer) and navigate to [http://localhost:5000](http://localhost:5000)
